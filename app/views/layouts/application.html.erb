@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MétEX</title>
+  <title>MétEX, the Paris Métro experience: <%= yield(:title) %></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -16,7 +19,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<!-- echo $this->Html->link('mét<strong>ex</strong>', '/', array('class' => 'navbar-brand', 'escape' => false)); -->métex
+				<%= link_to raw('mét<strong>ex</strong>'), root_path, class: 'navbar-brand' %>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse">
 				<ul class="nav navbar-nav">
@@ -30,7 +33,7 @@
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12">
-				<p class="well well-sm text-center"><small>&copy;2005-2015 Richard Whittaker - Milestone <em>Auber</em> - <!-- echo $this->Html->link('Please report any bugs on GitHub', 'https://github.com/PkerUNO/MetEX/issues', array('confirm' => 'Please report only bugs and suggestions to do with the workings of the site and not the content. I am aware the line data and photos are out of date, these will be updated in a future version.')); --></small></p>
+				<p class="well well-sm text-center"><small>&copy;2005-2015 Richard Whittaker - Milestone <em>Auber</em> - <%= link_to 'Please report any bugs on GitHub', 'https://github.com/PkerUNO/MetEX-RER/issues', data: { confirm: 'Please report only bugs and suggestions to do with the workings of the site and not the content. I am aware the line data and photos are out of date, these will be updated in a future version.' } %></small></p>
 			</div>
 		</div>
 	</div>
