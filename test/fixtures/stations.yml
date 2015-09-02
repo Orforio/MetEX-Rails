@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  line_id: 1
+  description: MyText
+  active: false
+  slug: MyString
+
+two:
+  name: MyString
+  line_id: 1
+  description: MyText
+  active: false
+  slug: MyString
