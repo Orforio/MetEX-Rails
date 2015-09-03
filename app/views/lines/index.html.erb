@@ -1,5 +1,5 @@
-<p id="notice"><%= notice %></p>
 <% content_for :title, "Lines" %>
+<p id="notice"><%= notice %></p>
 <div class="jumbotron">
 	<div class="container">
 		<h1>Lines</h1>
@@ -9,11 +9,10 @@
 	<div class="row">
 		<div class="list-group">
 			<% @lines.each do |line| %>
-			<%= link_to line.name, line, class: ['list-group-item', "line-#{line.id}"] %>
-			<!-- a href="<?php echo $this->Html->url(array('controller' => 'lines', 'action' => 'view', $line['Line']['id'])); ?>" class="list-group-item line-<?php echo $line['Line']['id']; ?>">
-				<h4><?php echo $this->LineBadge->addLineBadge($line['Line']['name']); ?></h4>
-				<p><?php echo $line['Line']['description']; ?></p>
-			</a -->
+			<a href="<%= line_stations_path(line) %>" class="list-group-item line-<%= line.id %>">
+				<h4><!-- $this->LineBadge->addLineBadge($line['Line']['name']); ?--><%= line.name %></h4>
+				<p><%= line.description %></p>
+			</a>
 			<% end %>
 		</div>
 	</div>
