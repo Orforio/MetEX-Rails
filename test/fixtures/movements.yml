@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  up_station_id: 1
+  down_station_id: 1
+  up_allowed: false
+  down_allowed: false
+  length: 1
+
+two:
+  up_station_id: 1
+  down_station_id: 1
+  up_allowed: false
+  down_allowed: false
+  length: 1

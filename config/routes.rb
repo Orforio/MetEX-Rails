@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :movements
   resources :lines do
 		resources :stations
 	end

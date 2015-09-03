@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902223441) do
+ActiveRecord::Schema.define(version: 20150903222733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 20150902223441) do
   end
 
   add_index "lines", ["slug"], name: "index_lines_on_slug", unique: true, using: :btree
+
+  create_table "movements", force: :cascade do |t|
+    t.integer  "up_station_id"
+    t.integer  "down_station_id"
+    t.boolean  "up_allowed"
+    t.boolean  "down_allowed"
+    t.integer  "length"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"

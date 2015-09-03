@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Up station:</strong>
+  <%= @movement.up_station_id %>
+</p>
+
+<p>
+  <strong>Down station:</strong>
+  <%= @movement.down_station_id %>
+</p>
+
+<p>
+  <strong>Up allowed:</strong>
+  <%= @movement.up_allowed %>
+</p>
+
+<p>
+  <strong>Down allowed:</strong>
+  <%= @movement.down_allowed %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @movement.length %>
+</p>
+
+<%= link_to 'Edit', edit_movement_path(@movement) %> |
+<%= link_to 'Back', movements_path %>
