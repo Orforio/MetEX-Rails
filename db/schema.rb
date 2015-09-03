@@ -38,6 +38,6 @@ ActiveRecord::Schema.define(version: 20150902223441) do
   end
 
   add_index "stations", ["line_id"], name: "index_stations_on_line_id", using: :btree
-  add_index "stations", ["slug"], name: "index_stations_on_slug", unique: true, using: :btree
+  add_index "stations", ["slug", "line_id"], name: "index_stations_on_slug_and_line_id", unique: true, using: :btree
 
 end

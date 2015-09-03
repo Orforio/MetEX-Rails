@@ -10,6 +10,6 @@ class CreateStations < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :stations, :line_id
-    add_index :stations, :slug, unique: true
+    add_index :stations, [:slug, :line_id], unique: true
   end
 end
