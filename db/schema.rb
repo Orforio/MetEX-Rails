@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150903222733) do
+ActiveRecord::Schema.define(version: 20150903231109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,14 @@ ActiveRecord::Schema.define(version: 20150903222733) do
 
   add_index "movements", ["down_station_id"], name: "index_movements_on_down_station_id", using: :btree
   add_index "movements", ["up_station_id"], name: "index_movements_on_up_station_id", using: :btree
+
+  create_table "movements_stations", id: false, force: :cascade do |t|
+    t.integer "movement_id"
+    t.integer "station_id"
+  end
+
+  add_index "movements_stations", ["movement_id"], name: "index_movements_stations_on_movement_id", using: :btree
+  add_index "movements_stations", ["station_id"], name: "index_movements_stations_on_station_id", using: :btree
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"
