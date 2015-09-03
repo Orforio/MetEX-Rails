@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :movements
-  resources :lines do
-		resources :stations
+	resources :lines do
+		resources :stations do
+			resources :movements, shallow: true
+		end
 	end
 	  
   root 'welcome#index'
