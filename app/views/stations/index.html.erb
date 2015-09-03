@@ -1,35 +1,23 @@
+<% content_for :title, "Line #{@line.name}" %>
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Stations</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Line</th>
-      <th>Description</th>
-      <th>Active</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @stations.each do |station| %>
-      <tr>
-        <td><%= station.name %></td>
-        <td><%= station.line_id %></td>
-        <td><%= station.description %></td>
-        <td><%= station.active %></td>
-        <td><%= station.slug %></td>
-        <td><%= link_to 'Show', station %></td>
-        <td><%= link_to 'Edit', edit_station_path(station) %></td>
-        <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Station', new_station_path %>
+<div class="jumbotron line-<%= @line.id %>">
+	<div class="container">
+		<h1><!--?php echo $this->LineBadge->addLineBadge($line['Line']['name']); ?--> Line <%= @line.name %></h1>
+	</div>
+</div>
+<div class="container-fluid line-<%= @line.id %>">
+	<div class="row">
+		<div class="col-sm-12">
+			<p><%= @line.description %></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="list-group">
+			<% @stations.each do |station| %>
+			<a href="<%= line_station_path(@line, station) %>" class="list-group-item">
+				<h4><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> <%= station.name %></h4>
+			</a>
+			<% end %>
+		</div>
+	</div>
+</div>

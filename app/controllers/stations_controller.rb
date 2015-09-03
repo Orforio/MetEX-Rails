@@ -1,10 +1,12 @@
 class StationsController < ApplicationController
-  before_action :set_station, only: [:show, :edit, :update, :destroy]
+	before_filter :set_line
+	before_action :set_station, only: [:show, :edit, :update, :destroy]
+
 
   # GET /stations
   # GET /stations.json
   def index
-    @stations = Station.all
+    @stations = @line.stations.all
   end
 
   # GET /stations/1
@@ -62,13 +64,17 @@ class StationsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_station
-      @station = Station.find(params[:id])
-    end
+		# Get Line first due to nested routing
+		def set_line
+			@line = Line.friendly.find(params[:line_id])
+		end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def station_params
-      params.require(:station).permit(:name, :line_id, :description, :active, :slug)
-    end
+		def set_station
+			@station = @line.stations.friendly.find(params[:id])
+		end
+
+		# Never trust parameters from the scary internet, only allow the white list through.
+		def station_params
+			params.require(:station).permit(:name, :line_id, :description, :active, :slug)
+		end
 end

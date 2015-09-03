@@ -1,29 +1,36 @@
+<% content_for :title, "(#{@station.line.name}) #{@station.name}" %>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @station.name %>
-</p>
-
-<p>
-  <strong>Line:</strong>
-  <%= @station.line_id %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @station.description %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @station.active %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @station.slug %>
-</p>
-
-<%= link_to 'Edit', edit_station_path(@station) %> |
-<%= link_to 'Back', stations_path %>
+<div class="jumbotron line-<%= @station.line.id %>">
+	<div class="container">
+		<h1><!--?php echo $this->LineBadge->addLineBadge($station['Line']['name']); ?--> <%= @station.name %></h1>
+	</div>
+</div>
+<div class="container-fluid line-<%= @station.line.id %>">
+	<div class="row">
+		<div class="col-sm-6">
+			<!--?php echo $this->Navigation->addSequentialNavLink($station['UpMovement'], 'up'); ?-->Up Movement
+		</div>
+		<div class="col-sm-6">
+			<!--?php echo $this->Navigation->addSequentialNavLink($station['DownMovement'], 'down'); ?-->Down Movement
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8" id="content-station-photos">
+			<!--?php echo $this->Image->addStationSlideshow($station['Image']); ?-->Photo
+		</div>
+		<div class="col-md-4" id="content-station-description">
+			<!--?php echo $this->Sound->addStationsAmbience($station['Sound']); ?-->
+			<p><%= @station.description %></p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6" id="nav-station-connections">
+			<h2>Connections</h2>
+			<!--?php echo $this->Navigation->addConnectionsList($station['Interchange'], $station['Station']['id']); ?-->Not yet implemented
+		</div>
+		<div class="col-sm-6" id="nav-station-places">
+			<h2>Places</h2>
+			<!--?php echo $this->Navigation->addPlacesList($station['Place']); ?-->Not yet implemented
+		</div>
+	</div>
+</div>
