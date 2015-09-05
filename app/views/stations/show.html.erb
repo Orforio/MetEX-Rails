@@ -26,7 +26,13 @@
 	<div class="row">
 		<div class="col-sm-6" id="nav-station-connections">
 			<h2>Connections</h2>
-			<!--?php echo $this->Navigation->addConnectionsList($station['Interchange'], $station['Station']['id']); ?-->Not yet implemented
+			<% if @connections %>
+				<ul>
+					<%= render partial: 'connection', collection: @connections %>
+				</ul>
+			<% else %>
+				<p>No connections</p>
+			<% end %>
 		</div>
 		<div class="col-sm-6" id="nav-station-places">
 			<h2>Places</h2>

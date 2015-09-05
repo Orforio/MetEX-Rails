@@ -12,6 +12,7 @@ class StationsController < ApplicationController
   # GET /stations/1
   # GET /stations/1.json
   def show
+	  set_connections if @station.interchange
   end
 
   # GET /stations/new
@@ -71,6 +72,10 @@ class StationsController < ApplicationController
 
 		def set_station
 			@station = @line.stations.friendly.find(params[:id])
+		end
+		
+		def set_connections
+			@connections = Interchange.find(@station.interchange.id).stations
 		end
 
 		# Never trust parameters from the scary internet, only allow the white list through.
