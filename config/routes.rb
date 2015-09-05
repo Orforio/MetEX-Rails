@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
+	root 'welcome#index'
 	resources :lines do
 		resources :stations do
 			resources :movements, shallow: true
 		end
 	end
-	  
-  root 'welcome#index'
+	resources :interchanges
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
