@@ -1,10 +1,11 @@
 class MovementsController < ApplicationController
+	before_action :set_line, :set_station, only: :index
   before_action :set_movement, only: [:show, :edit, :update, :destroy]
 
   # GET /movements
   # GET /movements.json
   def index
-    @movements = Movement.all
+    @movements = @station.movements
   end
 
   # GET /movements/1
@@ -63,6 +64,14 @@ class MovementsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_line
+	    @line = Line.friendly.find(params[:line_id])
+		end
+		
+		def set_station
+			@station = @line.stations.friendly.find(params[:station_id])
+		end
+    
     def set_movement
       @movement = Movement.find(params[:id])
     end

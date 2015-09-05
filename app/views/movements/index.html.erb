@@ -22,9 +22,6 @@
         <td><%= movement.up_allowed %></td>
         <td><%= movement.down_allowed %></td>
         <td><%= movement.length %></td>
-        <td><%= link_to 'Show', movement %></td>
-        <td><%= link_to 'Edit', edit_movement_path(movement) %></td>
-        <td><%= link_to 'Destroy', movement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +29,3 @@
 
 <br>
 
-<%= link_to 'New Movement', new_movement_path %>

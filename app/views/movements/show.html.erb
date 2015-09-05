@@ -2,12 +2,12 @@
 
 <p>
   <strong>Up station:</strong>
-  <%= @movement.up_station_id %>
+  <%= @movement.up_station.name %>
 </p>
 
 <p>
   <strong>Down station:</strong>
-  <%= @movement.down_station_id %>
+  <%= @movement.down_station.name %>
 </p>
 
 <p>
@@ -25,5 +25,3 @@
   <%= @movement.length %>
 </p>
 
-<%= link_to 'Edit', edit_movement_path(@movement) %> |
-<%= link_to 'Back', movements_path %>
