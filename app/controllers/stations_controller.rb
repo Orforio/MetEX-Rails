@@ -1,12 +1,12 @@
 class StationsController < ApplicationController
-	before_filter :set_line
+	before_action :set_line, except: [:new, :create]
 	before_action :set_station, only: [:show, :edit, :update, :destroy]
 
 
   # GET /stations
   # GET /stations.json
   def index
-    @stations = @line.stations.all
+    @stations = @line.stations
   end
 
   # GET /stations/1
