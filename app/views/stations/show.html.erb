@@ -8,10 +8,10 @@
 <div class="container-fluid line-<%= @station.line.id %>">
 	<div class="row">
 		<div class="col-sm-6">
-			<!--?php echo $this->Navigation->addSequentialNavLink($station['UpMovement'], 'up'); ?-->Up Movement
+			<%= render partial: 'up_movement', collection: @up_movements %>
 		</div>
 		<div class="col-sm-6">
-			<!--?php echo $this->Navigation->addSequentialNavLink($station['DownMovement'], 'down'); ?-->Down Movement
+			<%= render partial: 'down_movement', collection: @down_movements %>
 		</div>
 	</div>
 	<div class="row">

@@ -1,7 +1,7 @@
 class StationsController < ApplicationController
 	before_action :set_line, except: [:new, :create]
 	before_action :set_station, only: [:show, :edit, :update, :destroy]
-
+	before_action :set_movements, only: :show
 
   # GET /stations
   # GET /stations.json
@@ -72,6 +72,11 @@ class StationsController < ApplicationController
 
 		def set_station
 			@station = @line.stations.friendly.find(params[:id])
+		end
+		
+		def set_movements
+			@up_movements = @station.up_movements
+			@down_movements = @station.down_movements
 		end
 		
 		def set_connections
