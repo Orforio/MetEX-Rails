@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906214613) do
+ActiveRecord::Schema.define(version: 20150906224340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,24 @@ ActiveRecord::Schema.define(version: 20150906214613) do
 
   add_index "movements_stations", ["movement_id"], name: "index_movements_stations_on_movement_id", using: :btree
   add_index "movements_stations", ["station_id"], name: "index_movements_stations_on_station_id", using: :btree
+
+  create_table "places", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "slug"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "places", ["slug"], name: "index_places_on_slug", unique: true, using: :btree
+
+  create_table "places_stations", id: false, force: :cascade do |t|
+    t.integer "place_id"
+    t.integer "station_id"
+  end
+
+  add_index "places_stations", ["place_id"], name: "index_places_stations_on_place_id", using: :btree
+  add_index "places_stations", ["station_id"], name: "index_places_stations_on_station_id", using: :btree
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"

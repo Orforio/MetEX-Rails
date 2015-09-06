@@ -5,6 +5,7 @@ class Station < ActiveRecord::Base
 	has_many :up_movements, class_name: 'Movement', foreign_key: 'down_station_id', inverse_of: :down_station
 	has_many :down_movements, class_name: 'Movement', foreign_key: 'up_station_id', inverse_of: :up_station
 	has_and_belongs_to_many :movements
+	has_and_belongs_to_many :places
 	
 	extend FriendlyId
 	friendly_id :name, use: :scoped, scope: :line
