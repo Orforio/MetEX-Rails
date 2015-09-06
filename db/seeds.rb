@@ -290,3 +290,21 @@ Movement.create!([
 	{ up_station_id: 98, down_station_id: 97, up_allowed: true, down_allowed: true, length: nil, stations: Station.where(id: [98, 97]) },
 	{ up_station_id: 97, down_station_id: nil, up_allowed: false, down_allowed: false, length: nil, stations: Station.where(id: 97) }
 ])
+
+# Places
+Place.create!([
+	{ name: 'Saint-Lazare station', description: 'Saint-Lazare is the newest station on an already new line, and as such it features very modern and futuristic architecture. The new extension features a large mezzanine floor with an imposing frosted-glass roof, letting natural light stream into the station. The platforms are also easily observed from this level. The floor of this mezzanine features a clock, which shows the time through strips of lights embedded in it. It is quite probable though that the vast majority of commuters who come through this station every day have never noticed it!', stations: Station.where(id: 1) },
+	{ name: 'Old running tunnels, Gambetta', description: 'Here you can see one of the two old running tunnels, now used to connect the Line 3bis platforms to the Line 3 ones. It is very clear where Line 3 used to run. The old station of Gambetta is now Line 3bis\'s station, and although no connection exists anymore in these tunnels, the tunnels themselves are still there.', stations: Station.where(id: [12, 43]) },
+	{ name: 'Gambetta station', description: 'Here we can see the new-style entrance. The lamps just above the steps are a throwback to the old style of station entrances, but the logo and railings are both new.', stations: Station.where(id: [12, 43]) },
+	{ name: 'Buttes Chaumont station', description: 'The entrance to Buttes Chaumont is one of the original 1920s ones, which - back then - was a rather modern design!', stations: Station.where(id: 16) },
+	{ name: 'Parmentier station', description: '"A potato, a potato... my kingdom for a potato!" - is probably not what the figures in this statue are saying, but after all this is a station dedicated to the humble potato!', stations: Station.where(id: 40) },
+	{ name: 'Bir-Hakeim bridge', description: 'The Eiffel Tower is clearly visible from trains crossing the Seine here, although the elevated station of Bir-Hakeim is a good 5-10 minutes walk away.', stations: Station.where(id: 51) },
+	{ name: 'Pasteur station', description: 'A Hector Guimard entrance. This is not one of the more famous "canopy" types, but it is still has a "protected" status hanging over it, as do all existing Guimard entrances.', stations: Station.where(id: [56, 118]) },
+	{ name: 'Saint-Jaques station', description: 'The wall of the station are clearly visible, and for good reason - the local residents said so! This station is also unique as it features the ticket hall and entrance at street level.', stations: Station.where(id: 61) },
+	{ name: 'Rue de Lagny level crossing', description: 'This is the only publically-accessible level crossing on the entire Paris Metro. It is located in Rue de Lagny, 20 minutes walk away from Nation. It is however rarely used. It leads to the Rue de Lagny depot.', stations: Station.where(id: 73) },
+	{ name: 'Porte d\'Auteuil station', description: 'A 1920s-style Métro entrance, suitably placed to blend in with the surroundings.', stations: Station.where(id: 96) },
+	{ name: 'Vaneau station', description: 'Vaneau\'s entrance is pure 1920s - elegant and unintrusive.', stations: Station.where(id: 85) },
+	{ name: 'Porte de la Chapelle station', description: 'A very modern entrance for a relatively recent expansion.', stations: Station.where(id: 97) },
+	{ name: 'Abbesses station', description: 'Although a very well-preserved example of a Hector Guimard canopy entrance, it is completely out of place here. Not only does this canopy originally belong to Hotel de Ville, but it is also at an ex-Nord-Sud station. Guimard was never employed by the Nord-Sud company.', stations: Station.where(id: 102) },
+	{ name: 'Concorde station', description: 'As the whole station is a word game, here is a section of the wall for you to work out. It is quite simple to pick out the words and form the phrases of the Rights Of Man and the Citizen.', stations: Station.where(id: 109) }
+])
