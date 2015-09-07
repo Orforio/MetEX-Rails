@@ -36,7 +36,13 @@
 		</div>
 		<div class="col-sm-6" id="nav-station-places">
 			<h2>Places</h2>
-			<!--?php echo $this->Navigation->addPlacesList($station['Place']); ?-->Not yet implemented
+			<% unless @station.places.empty? %>
+				<ul>
+					<%= render partial: 'place', collection: @station.places %>
+				</ul>
+			<% else %>
+				<p>No places nearby</p>
+			<% end %>
 		</div>
 	</div>
 </div>
