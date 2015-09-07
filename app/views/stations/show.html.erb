@@ -16,7 +16,11 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8" id="content-station-photos">
-			<!--?php echo $this->Image->addStationSlideshow($station['Image']); ?-->Photo
+			<% if @station.images %>
+				<%= render partial: 'carousel', locals: { images: @station.images } %>
+			<% else %>
+				<%= image_tag 'http://metexv2.sblorgh.org/media/images/photo-not-available.jpg', class: 'img-responsive' %>
+			<% end %>
 		</div>
 		<div class="col-md-4" id="content-station-description">
 			<!--?php echo $this->Sound->addStationsAmbience($station['Sound']); ?-->

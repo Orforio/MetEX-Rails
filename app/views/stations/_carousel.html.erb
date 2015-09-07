@@ -1,0 +1,20 @@
+<div id="carousel-station" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<% images.each_with_index do |image, i| %>
+		<li data-target="#carousel-station" data-slide-to="<%= i %>" class="<%= 'active' if i == 0 %>"></li>
+		<% end %>
+	</ol>
+	<div class="carousel-inner">
+		<% images.each_with_index do |image, i| %>
+		<div class="item<%= " active" if i == 0 %>">
+			<%= image_tag "http://metexv2.sblorgh.org/media/images/stations/#{image.filename}", title: image.title, alt: image.alt, class: 'content-station-photos-slide' %>
+		</div>
+		<% end %>
+	</div>
+	<a class="left carousel-control" href="#carousel-station" role="button" data-slide="prev">
+		<span class="glyphicon glyphicon-chevron-left"></span>
+	</a>
+	<a class="right carousel-control" href="#carousel-station" role="button" data-slide="next">
+		<span class="glyphicon glyphicon-chevron-right"></span>
+	</a>
+</div>
