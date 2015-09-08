@@ -8,7 +8,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8" id="content-station-photos">
-			<!--?php echo $this->Image->addStationSlideshow($place['Image']); ?-->
+			<%= render partial: 'stations/carousel', locals: { images: @place.images } %>
 		</div>
 		<div class="col-md-4" id="content-place-description">
 			<p><%= @place.description %></p>
