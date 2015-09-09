@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906224340) do
+ActiveRecord::Schema.define(version: 20150909205936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,18 @@ ActiveRecord::Schema.define(version: 20150906224340) do
 
   add_index "places_stations", ["place_id"], name: "index_places_stations_on_place_id", using: :btree
   add_index "places_stations", ["station_id"], name: "index_places_stations_on_station_id", using: :btree
+
+  create_table "sounds", force: :cascade do |t|
+    t.string   "filename"
+    t.string   "title"
+    t.integer  "length"
+    t.integer  "soundable_id"
+    t.string   "soundable_type"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "sounds", ["soundable_type", "soundable_id"], name: "index_sounds_on_soundable_type_and_soundable_id", using: :btree
 
   create_table "stations", force: :cascade do |t|
     t.string   "name"
