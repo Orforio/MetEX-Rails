@@ -693,3 +693,36 @@ Image.create!([
 	{ imageable: Place.find(13), filename: '14/102-4.jpg', title: 'Abbesses station - 1', alt: 'Abbesses station - 1' },
 	{ imageable: Place.find(14), filename: '14/109-4.jpg', title: 'Concorde station - 1', alt: 'Concorde station - 1' }
 ])
+
+# Sounds
+Sound.create!([
+	{ soundable: Station.find(2), filename: 'ambient_2.mp3', title: 'Madeleine - Ambience', length: '56' },
+	{ soundable: Station.find(3), filename: 'ambient_3.mp3', title: 'Pyramides - Ambience', length: '95' },
+	{ soundable: Station.find(4), filename: 'ambient_4.mp3', title: 'Châtelet - Ambience', length: '82' },
+	{ soundable: Station.find(6), filename: 'ambient_6.mp3', title: 'Bercy - Ambience', length: '57' },
+	{ soundable: Station.find(7), filename: 'ambient_7.mp3', title: 'Cour Saint-Émilion - Ambience', length: '131' },
+	{ soundable: Station.find(9), filename: 'ambient_9.mp3', title: 'Porte des Lilas - Ambience', length: '43' },
+	{ soundable: Station.find(12), filename: 'ambient_12.mp3', title: 'Gambetta - Ambience', length: '62' },
+	{ soundable: Station.find(17), filename: 'ambient_17.mp3', title: 'Botzaris - Ambience', length: '62' },
+	{ soundable: Station.find(19), filename: 'ambient_19.mp3', title: 'Pré Saint-Gervais - Ambience', length: '89' },
+	{ soundable: Station.find(27), filename: 'ambient_27.mp3', title: 'Malesherbes - Ambience', length: '85' },
+	{ soundable: Station.find(33), filename: 'ambient_33.mp3', title: 'Quatre-Septembre - Ambience', length: '94' },
+	{ soundable: Station.find(37), filename: 'ambient_37.mp3', title: 'Arts et Métiers - Ambience', length: '72' },
+	{ soundable: Station.find(41), filename: 'ambient_41.mp3', title: 'Rue Saint-Maur - Ambience', length: '65' },
+	{ soundable: Station.find(43), filename: 'ambient_43.mp3', title: 'Gambetta - Ambience', length: '107' },
+	{ soundable: Station.find(47), filename: 'ambient_47.mp3', title: 'Kléber - Ambience', length: '82' },
+	{ soundable: Station.find(58), filename: 'ambient_58.mp3', title: 'Edgar Quinet - Ambience', length: '88' },
+	{ soundable: Station.find(67), filename: 'ambient_67.mp3', title: 'Quai de la Gare - Ambience', length: '61' },
+	{ soundable: Station.find(70), filename: 'ambient_70.mp3', title: 'Daumesnil - Ambience', length: '52' },
+	{ soundable: Station.find(84), filename: 'ambient_84.mp3', title: 'Duroc - Ambience', length: '56' },
+	{ soundable: Station.find(90), filename: 'ambient_90.mp3', title: 'Maubert - Mutualité - Ambience', length: '73' },
+	{ soundable: Station.find(97), filename: 'ambient_97.mp3', title: 'Porte de la Chapelle - Ambience', length: '77' },
+	{ soundable: Station.find(102), filename: 'ambient_102.mp3', title: 'Abbesses - Ambience', length: '41' },
+	{ soundable: Station.find(104), filename: 'ambient_104.mp3', title: 'Saint-Georges - Ambience', length: '54' },
+	{ soundable: Station.find(106), filename: 'ambient_106.mp3', title: 'Trinité - d''Estienne d''Orves - Ambience', length: '52' },
+	{ soundable: Station.find(111), filename: 'ambient_111.mp3', title: 'Solférino - Ambience', length: '69' },
+	{ soundable: Station.find(114), filename: 'ambient_114.mp3', title: 'Rennes - Ambience', length: '58' },
+	{ soundable: Station.find(117), filename: 'ambient_117.mp3', title: 'Falguière - Ambience', length: '65' },
+	{ soundable: Station.find(120), filename: 'ambient_120.mp3', title: 'Vaugirard - Ambience', length: '60' },
+	{ soundable: Station.find(123), filename: 'ambient_123.mp3', title: 'Corentin Celton - Ambience', length: '53' }
+])
