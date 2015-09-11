@@ -1,13 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
-  description: MyText
+line1:
+  id: 1
+  name: 1
+  description: The first line.
+  active: true
+  
+line2:
+  id: 2
+  name: 2
+  description: An inactive line.
   active: false
-  slug: MyString
-
-two:
-  name: MyString
-  description: MyText
-  active: false
-  slug: MyString
