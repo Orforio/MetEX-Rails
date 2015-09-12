@@ -1,15 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  name: MyString
+abbesses:
+  id: 1
+  name: Abbesses
   line_id: 1
-  description: MyText
-  active: false
-  slug: MyString
+  description: The first active station.
+  active: true
 
-two:
-  name: MyString
-  line_id: 2
-  description: MyText
+bercy:
+  id: 2
+  name: Bercy
+  line_id: 1
+  description: The second station is closed.
   active: false
-  slug: MyString

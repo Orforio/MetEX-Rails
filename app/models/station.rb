@@ -8,6 +8,9 @@ class Station < ActiveRecord::Base
 	has_and_belongs_to_many :movements
 	has_and_belongs_to_many :places
 	
+	validates :name, :line, presence: true
+	validates :name, uniqueness: { scope: :line }
+	
 	default_scope { where(active: true) }
 	
 	extend FriendlyId
