@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class InterchangeTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+	should have_many(:stations)
+	
+	should validate_presence_of(:name)
+	should validate_uniqueness_of(:name)
 end
