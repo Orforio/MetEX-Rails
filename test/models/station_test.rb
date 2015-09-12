@@ -16,17 +16,16 @@ class StationTest < ActiveSupport::TestCase
 	
 	context "Station" do
 		setup do
-			@line1 = lines(:line1)
 			@station1 = stations(:abbesses)
 			@station2 = stations(:bercy)
 		end
 		
 		should "find active stations" do
-			assert_includes @line1.stations.all, @station1
+			assert_includes Station.all, @station1
 		end
 		
 		should "not find inactive stations" do
-			assert_not_includes @line1.stations.all, @station2
+			assert_not_includes Station.all, @station2
 		end
 	end
 end

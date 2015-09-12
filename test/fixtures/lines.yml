@@ -1,11 +1,9 @@
 line1:
-  id: 1
   name: 1
   description: The first line.
   active: true
   
 line2:
-  id: 2
   name: 2
   description: An inactive line.
   active: false

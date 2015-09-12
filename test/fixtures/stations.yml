@@ -1,13 +1,11 @@
 abbesses:
-  id: 1
   name: Abbesses
-  line_id: 1
+  line_id: line1
   description: The first active station.
   active: true
 
 bercy:
-  id: 2
   name: Bercy
-  line_id: 1
+  line_id: line1
   description: The second station is closed.
   active: false
