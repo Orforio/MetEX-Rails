@@ -7,7 +7,7 @@
 	<div class="carousel-inner">
 		<% images.each_with_index do |image, i| %>
 		<div class="item<%= " active" if i == 0 %>">
-			<%= image_tag "http://metexv2.sblorgh.org/media/images/stations/#{image.filename}", title: image.title, alt: image.alt, class: 'content-station-photos-slide' %>
+			<%= image_tag image.url, title: image.title, alt: image.alt, class: 'content-station-photos-slide' %>
 		</div>
 		<% end %>
 	</div>
