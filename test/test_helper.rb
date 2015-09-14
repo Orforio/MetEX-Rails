@@ -10,6 +10,6 @@ class ActiveSupport::TestCase
 	fixtures :all
 
 	def assert_no_access
-		assert_response :bad_request
+		assert_response :not_found
 	end
 end

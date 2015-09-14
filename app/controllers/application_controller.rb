@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
 	
 	protected
 		def restrict_to_development
-			head(:bad_request) unless Rails.env.development?
+			head(:not_found) unless Rails.env.development?
 		end
 end
