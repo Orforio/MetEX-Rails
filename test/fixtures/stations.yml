@@ -1,11 +1,15 @@
 abbesses:
   name: Abbesses
-  line_id: line1
+  line: line1
   description: The first active station.
   active: true
+  interchange: interchange1
+  slug: abbesses
 
 bercy:
   name: Bercy
-  line_id: line1
+  line: line1
   description: The second station is closed.
   active: false
+  interchange: interchange1
+  slug: bercy

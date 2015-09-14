@@ -1,4 +1,5 @@
 class StationsController < ApplicationController
+	before_action :restrict_to_development, except: [:index, :show]
 	before_action :set_line, except: [:new, :create]
 	before_action :set_station, only: [:show, :edit, :update, :destroy]
 	before_action :set_movements, only: :show
