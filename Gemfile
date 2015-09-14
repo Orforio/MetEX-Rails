@@ -55,4 +55,5 @@ end
 group :test do
 	gem 'rake'
 	gem 'shoulda'
+	gem 'codeclimate-test-reporter', require: nil
 end
