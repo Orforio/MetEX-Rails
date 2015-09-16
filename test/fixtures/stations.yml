@@ -13,3 +13,19 @@ bercy:
   active: false
   interchange: interchange1
   slug: bercy
+
+concorde:
+  name: Concorde
+  line: line4
+  description: The only station on Line 4.
+  active: true
+  interchange: interchange1
+  slug: concorde
+
+duroc:
+  name: Duroc
+  line: line3
+  description: The only station on Line 3.
+  active: true
+  interchange: interchange1
+  slug: duroc
