@@ -2,3 +2,8 @@ place1:
   name: Place 1
   description: The first place.
   stations: bercy
+
+place2:
+  name: Actually Place 1
+  description: The second place in the database, but the first alphabetically.
+  stations: bercy
