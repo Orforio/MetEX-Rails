@@ -8,7 +8,7 @@ class Movement < ActiveRecord::Base
 	
 	private
 		def both_stations_cannot_be_nil
-			unless up_station_id.present? || down_station_id.present?
+			if up_station_id.blank? && down_station_id.blank?
 				errors.add(:base, "both stations can't be empty")
 			end
 		end
