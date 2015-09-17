@@ -28,4 +28,17 @@ class StationTest < ActiveSupport::TestCase
 			assert_not_includes Station.all, @station2
 		end
 	end
+	
+	context "a Station" do
+		setup do
+			@abbesses = stations(:abbesses)
+			@movements = @abbesses.down_movements
+			@movement1 = movements(:movement1)
+			@movement2 = movements(:movement2)
+		end
+		
+		should "list allowed Movements first" do
+			assert_equal [@movement2, @movement1], @movements
+		end
+	end
 end

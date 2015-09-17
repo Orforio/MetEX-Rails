@@ -2,6 +2,14 @@ movement1:
   up_station: abbesses
   down_station: bercy
   up_allowed: true
-  down_allowed: true
+  down_allowed: false
   length: 60
   stations: abbesses, bercy
+
+movement2:
+  up_station: abbesses
+  down_station: concorde
+  up_allowed: true
+  down_allowed: true
+  length: 21
+  stations: abbesses, concorde

@@ -7,7 +7,7 @@ class MovementTest < ActiveSupport::TestCase
 	
 	should validate_presence_of(:stations)
 	
-	context "Movement" do
+	context "a Movement" do
 		setup do
 			@movement1 = movements(:movement1)
 		end
