@@ -81,7 +81,7 @@ class StationsController < ApplicationController
 		end
 		
 		def set_connections
-			@connections = Interchange.find(@station.interchange.id).stations
+			@connections = Interchange.find(@station.interchange.id).stations.where.not(id: @station)
 		end
 
 		# Never trust parameters from the scary internet, only allow the white list through.
