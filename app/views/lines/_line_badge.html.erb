@@ -1,0 +1,2 @@
+<% bis_line = line_name[/^(\d+)bis$/, 1] %>
+<div class="line-badge"><%= bis_line ? raw("#{bis_line}<small>bis</small>") : line_name %></div>

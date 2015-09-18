@@ -10,7 +10,7 @@
 		<div class="list-group">
 			<% @lines.each do |line| %>
 			<a href="<%= line_stations_path(line) %>" class="list-group-item line-<%= line.id %>">
-				<h4><!-- $this->LineBadge->addLineBadge($line['Line']['name']); ?--><%= line.name %></h4>
+				<h4><%= render partial: 'line_badge', locals: { line_name: line.name } %></h4>
 				<p><%= line.description %></p>
 			</a>
 			<% end %>
