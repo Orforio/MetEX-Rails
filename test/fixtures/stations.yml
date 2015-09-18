@@ -29,3 +29,19 @@ duroc:
   active: true
   interchange: interchange1
   slug: duroc
+
+etoile4:
+  name: Etoile
+  line: line4
+  description: Etoile on Line 4.
+  active: true
+  interchange: interchange2
+  slug: etoile
+  
+etoile3:
+  name: Etoile
+  line: line3
+  description: Etoile on Line 3.
+  active: true
+  interchange: interchange2
+  slug: etoile

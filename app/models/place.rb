@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
 	has_many :images, as: :imageable
-	has_and_belongs_to_many :stations
+	has_and_belongs_to_many :stations, -> { includes(:line).order('lines.order') }
 	
 	validates :name, :description, :stations, presence: true
 	validates :name, uniqueness: true
