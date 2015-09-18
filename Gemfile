@@ -57,6 +57,7 @@ group :test do
 	gem 'rake'
 	gem 'shoulda'
 	gem 'cucumber-rails', require: false
+	gem 'rspec-expectations'
 	gem 'database_cleaner'
 	gem 'codeclimate-test-reporter', require: false
 end
