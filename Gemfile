@@ -36,6 +36,8 @@ gem 'puma'
 # Use Bootstrap as the frontend framework
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'autoprefixer-rails'
+# Temporary while waiting for this branch to be merged
+gem 'compass-rails', git: 'https://github.com/robkilby/compass-rails.git', branch: 'sprockets-3'
 
 # Use FriendlyId to use line names and station names in URLs instead of database IDs
 gem 'friendly_id', '~> 5.1.0'
