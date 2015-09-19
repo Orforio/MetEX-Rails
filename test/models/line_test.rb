@@ -29,4 +29,21 @@ class LineTest < ActiveSupport::TestCase
 			assert_equal [@line1, @line3, @line4, @line4bis, @line5], Line.all
 		end
 	end
+	
+	context "line.name_components" do
+		setup do
+			@line3 = lines(:line3)
+			@line4bis = lines(:line4bis)
+			@line3hash = { number: '3', suffix: nil }
+			@line4bishash = { number: '4', suffix: 'bis' }
+		end
+		
+		should "return a hash of line number and suffix for a line that has one" do
+			assert_equal @line4bishash, @line4bis.name_components
+		end
+		
+		should "return a hash of line number and nil suffix for a line that doesn't have one" do
+			assert_equal @line3hash, @line3.name_components
+		end
+	end
 end
