@@ -1,2 +1,1 @@
-<% bis_line = line_name[/^(\d+)bis$/, 1] %>
-<div class="line-badge"><%= bis_line ? raw("#{bis_line}<small>bis</small>") : line_name %></div>
+<div class="line-badge"><%= line.name_components[:number] %><% if line.name_components[:suffix] %><small><%= line.name_components[:suffix] %></small><% end %></div>

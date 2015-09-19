@@ -2,7 +2,7 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <div class="jumbotron line-<%= @station.line.id %>">
 	<div class="container">
-		<h1><%= render partial: 'lines/line_badge', locals: { line_name: @station.line.name } %> <%= @station.name %></h1>
+		<h1><%= render partial: 'lines/line_badge', locals: { line: @station.line } %> <%= @station.name %></h1>
 	</div>
 </div>
 <div class="container-fluid line-<%= @station.line.id %>">

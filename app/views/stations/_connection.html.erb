@@ -1,1 +1,1 @@
-<li class="line-<%= connection.line.id %>"><%= render partial: 'lines/line_badge', locals: { line_name: connection.line.name } %> <%= link_to connection.name, line_station_path(connection.line.slug, connection.slug) %></li>
+<li class="line-<%= connection.line.id %>"><%= render partial: 'lines/line_badge', locals: { line: connection.line } %> <%= link_to connection.name, line_station_path(connection.line.slug, connection.slug) %></li>
