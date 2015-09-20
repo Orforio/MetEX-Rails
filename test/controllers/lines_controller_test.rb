@@ -2,7 +2,7 @@ require 'test_helper'
 
 class LinesControllerTest < ActionController::TestCase
 	setup do
-		@line1 = lines(:line1)
+		@line = FactoryGirl.create(:line)
 	end
 
 	test "should get index" do
@@ -17,27 +17,27 @@ class LinesControllerTest < ActionController::TestCase
 	end
 
 	test "should not create line" do
-		post :create, line: { active: @line1.active, description: @line1.description, name: @line1.name }
+		post :create, line: { active: @line.active, description: @line.description, name: @line.name }
 		assert_no_access
 	end
 
 	test "should not show line" do
-		get :show, id: @line1
+		get :show, id: @line
 		assert_no_access
 	end
 
 	test "should not get edit" do
-		get :edit, id: @line1
+		get :edit, id: @line
 		assert_no_access
 	end
 
 	test "should not update line" do
-		patch :update, id: @line1, line: { active: @line1.active, description: @line1.description, name: @line1.name }
+		patch :update, id: @line, line: { active: @line.active, description: @line.description, name: @line.name }
 		assert_no_access
 	end
 
 	test "should not destroy line" do
-		delete :destroy, id: @line1
+		delete :destroy, id: @line
 		assert_no_access
 	end
 end

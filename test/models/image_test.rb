@@ -12,11 +12,11 @@ class ImageTest < ActiveSupport::TestCase
 	
 	context "image.url" do
 		setup do
-			@image1 = images(:image1)
+			@image = FactoryGirl.create(:image)
 		end
 		
 		should "return a fully-formed URL" do
-			assert_equal "http://metexv2.sblorgh.org/media/images/stations/14/123-2.jpg", @image1.url
+			assert_equal "http://metexv2.sblorgh.org/media/images/stations/#{@image.filename}", @image.url
 		end
 	end
 end

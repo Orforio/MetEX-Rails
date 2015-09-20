@@ -11,26 +11,28 @@ class PlaceTest < ActiveSupport::TestCase
 	
 	context "a Place" do
 		setup do
-			@place3 = places(:place3)
-			@etoile4 = stations(:etoile4)
-			@etoile3 = stations(:etoile3)
+			@line_2 = FactoryGirl.create(:line, order: 11)
+			@line_1 = FactoryGirl.create(:line, order: 10)
+			@station_2 = FactoryGirl.create(:station, line: @line_2)
+			@station_1 = FactoryGirl.create(:station, line: @line_1)
+			@place = FactoryGirl.create(:place, stations: [@station_2, @station_1])
 		end
 		
 		should "list nearby Stations in Line order" do
-			assert_equal [@etoile3, @etoile4], Place.find(@place3.id).stations
+			assert_equal [@station_1, @station_2], Place.find(@place.id).stations
 		end
 	end
 	
 	context "a list of Places" do
 		setup do
-			@place1 = places(:place1)
-			@place2 = places(:place2)
-			@place3 = places(:place3)
+			@place_b = FactoryGirl.create(:place, name: "B Place")
+			@place_c = FactoryGirl.create(:place, name: "C Place")
+			@place_a = FactoryGirl.create(:place, name: "A Place")
 		end
 		
 		should "be in alphabetical order" do
 			places_list = Place.all
-			assert_equal [@place2, @place3, @place1], places_list
+			assert_equal [@place_a, @place_b, @place_c], places_list
 		end
 	end
 end

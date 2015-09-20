@@ -8,14 +8,18 @@ class InterchangeTest < ActiveSupport::TestCase
 	
 	context "an Interchange" do
 		setup do
-			@interchange1 = interchanges(:interchange1)
-			@line1_station = stations(:abbesses)
-			@line3_station = stations(:duroc)
-			@line4_station = stations(:concorde)
+			@line_1 = FactoryGirl.create(:line)
+			@line_2 = FactoryGirl.create(:line)
+			@line_3 = FactoryGirl.create(:line)
+			
+			@line_3_station = FactoryGirl.create(:station, line: @line_3)
+			@interchange = @line_3_station.interchange
+			@line_1_station = FactoryGirl.create(:station, line: @line_1, interchange: @interchange)
+			@line_2_station = FactoryGirl.create(:station, line: @line_2, interchange: @interchange)
 		end
 		
 		should "list its Stations in Line order" do
-			assert_equal [@line1_station, @line3_station, @line4_station], Interchange.find(@interchange1.id).stations
+			assert_equal [@line_1_station, @line_2_station, @line_3_station], Interchange.find(@interchange.id).stations
 		end
 	end
 end

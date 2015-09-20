@@ -9,41 +9,39 @@ class LineTest < ActiveSupport::TestCase
 	
 	context "a list of Lines" do
 		setup do
-			@line1 = lines(:line1)
-			@line2 = lines(:line2)
-			@line3 = lines(:line3)
-			@line4 = lines(:line4)
-			@line5 = lines(:line5)
-			@line4bis = lines(:line4bis)
+			@line_1 = FactoryGirl.create(:line, name: "1", order: 1)
+			@line_3 = FactoryGirl.create(:line, name: "3", order: 3)
+			@line_2 = FactoryGirl.create(:line, name: "2", order: 2)
+			@inactive_line = FactoryGirl.create(:inactive_line, name: "4", order: 4)
 		end
 		
 		should "include active lines" do
-			assert_includes Line.all, @line1
+			assert_includes Line.all, @line_3
 		end
 		
 		should "not include inactive lines" do
-			assert_not_includes Line.all, @line2
+			assert_not_includes Line.all, @inactive_line
 		end
 		
 		should "be in Line order" do
-			assert_equal [@line1, @line3, @line4, @line4bis, @line5], Line.all
+			assert_equal [@line_1, @line_2, @line_3], Line.all
 		end
 	end
 	
 	context "line.name_components" do
 		setup do
-			@line3 = lines(:line3)
-			@line4bis = lines(:line4bis)
-			@line3hash = { number: '3', suffix: nil }
-			@line4bishash = { number: '4', suffix: 'bis' }
+			@line_with_number_only = FactoryGirl.create(:line, name: "9")
+			@line_with_number_and_suffix = FactoryGirl.create(:bis_line, name: "9bis")
+			@line_9_hash = { number: '9', suffix: nil }
+			@line_9bis_hash = { number: '9', suffix: 'bis' }
 		end
 		
 		should "return a hash of line number and suffix for a line that has one" do
-			assert_equal @line4bishash, @line4bis.name_components
+			assert_equal @line_9bis_hash, @line_with_number_and_suffix.name_components
 		end
 		
 		should "return a hash of line number and nil suffix for a line that doesn't have one" do
-			assert_equal @line3hash, @line3.name_components
+			assert_equal @line_9_hash, @line_with_number_only.name_components
 		end
 	end
 end

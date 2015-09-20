@@ -4,8 +4,7 @@ class StationsHelperTest < ActionView::TestCase
 	include StationsHelper
 	
 	setup do
-		@station1 = stations(:abbesses)
-		@station2 = stations(:bercy)
+		@station = FactoryGirl.create(:station)
 	end
 	
 	test "should display a terminus" do
@@ -13,10 +12,10 @@ class StationsHelperTest < ActionView::TestCase
 	end
 	
 	test "should display an allowed station" do
-		assert_equal link_to(@station1.name, line_station_path(@station1.line.slug, @station1.slug)), link_to_next_station(@station1, true)
+		assert_equal link_to(@station.name, line_station_path(@station.line.slug, @station.slug)), link_to_next_station(@station, true)
 	end
 	
 	test "should display a disallowed station" do
-		assert_equal link_to(@station2.name, line_station_path(@station2.line.slug, @station2.slug), class: 'bg-danger'), link_to_next_station(@station2, false)
+		assert_equal link_to(@station.name, line_station_path(@station.line.slug, @station.slug), class: 'bg-danger'), link_to_next_station(@station, false)
 	end
 end

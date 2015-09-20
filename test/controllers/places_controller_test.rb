@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PlacesControllerTest < ActionController::TestCase
 	setup do
-		@place1 = places(:place1)
+		@place = FactoryGirl.create(:place)
 	end
 
 	test "should not get index" do
@@ -16,27 +16,27 @@ class PlacesControllerTest < ActionController::TestCase
 	end
 
 	test "should not create place" do
-		post :create, place: { description: @place1.description, name: @place1.name }
+		post :create, place: { description: @place.description, name: @place.name }
 		assert_no_access
 	end
 
 	test "should show place" do
-		get :show, id: @place1
+		get :show, id: @place
 		assert_response :success
 	end
 
 	test "should not get edit" do
-		get :edit, id: @place1
+		get :edit, id: @place
 		assert_no_access
 	end
 
 	test "should not update place" do
-		patch :update, id: @place1, place: { description: @place1.description, name: @place1.name }
+		patch :update, id: @place, place: { description: @place.description, name: @place.name }
 		assert_no_access
 	end
 
 	test "should not destroy place" do
-		delete :destroy, id: @place1
+		delete :destroy, id: @place
 		assert_no_access
 	end
 end

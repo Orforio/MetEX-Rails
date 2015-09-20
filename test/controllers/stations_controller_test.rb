@@ -2,8 +2,8 @@ require 'test_helper'
 
 class StationsControllerTest < ActionController::TestCase
 	setup do
-		@line = lines(:line1)
-		@station = stations(:abbesses)
+		@station = FactoryGirl.create(:station)
+		@line = @station.line
 	end
 
 	test "should get index" do

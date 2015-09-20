@@ -16,29 +16,29 @@ class StationTest < ActiveSupport::TestCase
 	
 	context "Station" do
 		setup do
-			@station1 = stations(:abbesses)
-			@station2 = stations(:bercy)
+			@active_station = FactoryGirl.create(:station)
+			@inactive_station = FactoryGirl.create(:inactive_station)
 		end
 		
 		should "find active stations" do
-			assert_includes Station.all, @station1
+			assert_includes Station.all, @active_station
 		end
 		
 		should "not find inactive stations" do
-			assert_not_includes Station.all, @station2
+			assert_not_includes Station.all, @inactive_station
 		end
 	end
 	
 	context "a Station" do
 		setup do
-			@abbesses = stations(:abbesses)
-			@movements = @abbesses.down_movements
-			@movement1 = movements(:movement1)
-			@movement2 = movements(:movement2)
+			@station = FactoryGirl.create(:station)
+			@up_movement_disallowed = FactoryGirl.create(:single_direction_movement, down_station: @station)
+			@up_movement_allowed = FactoryGirl.create(:movement, down_station: @station)
+			@movements = @station.up_movements
 		end
 		
 		should "list allowed Movements first" do
-			assert_equal [@movement2, @movement1], @movements
+			assert_equal [@up_movement_allowed, @up_movement_disallowed], @movements
 		end
 	end
 end

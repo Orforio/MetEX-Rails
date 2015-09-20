@@ -1,3 +1,7 @@
+Transform /^(-?\d+)$/ do |number|
+	number.to_i
+end
+
 When(/^I (?:visit|am on) the "(.*?)" page$/) do |page|
 	visit PAGES[page.gsub(' ', '_').to_sym]
 end
@@ -20,5 +24,9 @@ end
 
 Then(/^I am sent to the "(.*?)" page$/) do |page|
 	expected_path = PAGES[page.gsub(' ', '_').to_sym]
-	expect(current_path).to eq(expected_path)
+	if expected_path.is_a? Regexp
+		expect(current_path).to match(expected_path)
+	else
+		expect(current_path).to eq(expected_path)
+	end
 end

@@ -14,11 +14,11 @@ class SoundTest < ActiveSupport::TestCase
 	
 	context "filename_url" do
 		setup do
-			@sound1 = sounds(:sound1)
+			@sound = FactoryGirl.create(:sound)
 		end
 		
 		should "return a fully-formed URL" do
-			assert_equal "http://metexv2.sblorgh.org/media/audio/1/ambience.mp3", @sound1.url
+			assert_equal "http://metexv2.sblorgh.org/media/audio/#{@sound.filename}", @sound.url
 		end
 	end
 end
