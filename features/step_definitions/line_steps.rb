@@ -15,12 +15,7 @@ Given(/^(\d+) active and (\d+) inactive lines exist$/) do |number_active, number
 	step "#{number_inactive} inactive line exist"
 end
 
-When(/^I click on the first line$/) do
-  first('.list-group-item').click
-end
-
-Then(/^I should see only (\d+) line$/) do |number|
-	within('.list-group') do
-		find('.list-group-item', count: number, visible: true)
-	end
+Given(/^I have selected a line$/) do
+	step "I am on the \"lines index\" page"
+	step "I click on the first line"
 end

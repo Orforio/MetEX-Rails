@@ -10,6 +10,10 @@ When(/^I click on "(.*?)"$/) do |text|
 	click_on(text)
 end
 
+When(/^I click on the first (?:line|station)$/) do
+  first('.list-group-item').click
+end
+
 Then(/^I should see "(.*?)" in the (.*?)$/) do |text, context|
 	within(context) do
 		page.should have_content(/#{text}/i)
@@ -19,6 +23,12 @@ end
 Then(/^I should not see "(.*?)" in the (.*?)$/) do |text, context|
 	within(context) do
 		page.should have_no_content(/#{text}/i)
+	end
+end
+
+Then(/^I should see only (\d+) (?:line[s]?|station[s]?)$/) do |number|
+	within('.list-group') do
+		all('.list-group-item', count: number, visible: true)
 	end
 end
 
