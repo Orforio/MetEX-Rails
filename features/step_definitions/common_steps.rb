@@ -11,7 +11,7 @@ When(/^I click on "(.*?)"$/) do |text|
 end
 
 When(/^I click on the first (?:line|station)$/) do
-  first('.list-group-item').click
+	first('.list-group-item').click
 end
 
 Then(/^I should see "(.*?)" in the (.*?)$/) do |text, context|
