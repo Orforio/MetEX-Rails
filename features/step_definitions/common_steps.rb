@@ -32,7 +32,7 @@ Then(/^I should see only (\d+) (?:line[s]?|station[s]?)$/) do |number|
 	end
 end
 
-Then(/^I am sent to the "(.*?)" page$/) do |page|
+Then(/^I (?:am|should be) sent to (?:the|a) "(.*?)" page$/) do |page|
 	expected_path = PAGES[page.gsub(' ', '_').to_sym]
 	if expected_path.is_a? Regexp
 		expect(current_path).to match(expected_path)

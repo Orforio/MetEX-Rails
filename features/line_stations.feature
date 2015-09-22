@@ -1,4 +1,4 @@
-Feature: Stations - Index
+Feature: Line - Stations
 	As a passenger,
 	I want to see all the stations on a line,
 	So that I can choose one to start the tour

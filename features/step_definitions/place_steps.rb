@@ -3,8 +3,7 @@ Given(/^(\d+) place[s]? exist[s]? with (\d+) station[s]? and (\d+) photo[s]?$/) 
 end
 
 Given(/^I have selected a place$/) do
-	step "I have selected a line"
-	step "I click on the first station"
+	step "I have selected a station"
 	within('#nav-station-places') do
 		first('a').click
 	end
