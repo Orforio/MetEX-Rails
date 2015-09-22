@@ -16,14 +16,14 @@
 	</div>
 	<div class="row">
 		<div class="col-md-8" id="content-station-photos">
-			<% if @station.images %>
+			<% if @station.images.present? %>
 				<%= render partial: 'carousel', locals: { images: @station.images } %>
 			<% else %>
 				<%= image_tag 'http://metexv2.sblorgh.org/media/images/photo-not-available.jpg', class: 'img-responsive' %>
 			<% end %>
 		</div>
 		<div class="col-md-4" id="content-station-description">
-			<%= render @station.sound if @station.sound %>
+			<%= render @station.sound if @station.sound.present? %>
 			<p><%= @station.description %></p>
 		</div>
 	</div>

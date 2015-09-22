@@ -9,5 +9,15 @@ FactoryGirl.define do
 		factory :inactive_station do
 			active false
 		end
+		
+		factory :station_with_images do
+			transient do
+				number_images 3
+			end
+			
+			after(:create) do |station, options|
+				create_list(:image, options.number_images, imageable: station)
+			end
+		end
 	end
 end
