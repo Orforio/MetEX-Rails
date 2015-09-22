@@ -29,3 +29,10 @@ Then(/^I should see (\d+) connections$/) do |number_connections|
 		page.should have_selector('li', count: number_connections, visible: true)
 	end
 end
+
+Then(/^there should( not)? be audio$/) do |not_present|
+	number_sounds = not_present ? 0 : 1
+	within('#content-station-description') do
+		page.should have_selector('audio', count: number_sounds, visible: true)
+	end
+end
