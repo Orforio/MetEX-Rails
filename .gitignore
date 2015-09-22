@@ -11,6 +11,7 @@
 /log/*
 !/log/.keep
 /tmp
+/features/results
 
 # Ignore local environment files
 .env
