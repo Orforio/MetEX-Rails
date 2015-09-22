@@ -4,7 +4,7 @@ Feature: Places
 	So that I can broaden my knowledge
 	
 	Background:
-		Given 1 place exists with 2 stations and 3 photos
+		Given 1 place exists with 2 stations and 3 images
 		
 	Scenario: Viewing place information
 		Given I have selected a place
@@ -12,7 +12,7 @@ Feature: Places
 		
 	Scenario: Viewing slideshow
 		Given I have selected a place
-		Then I should see a 3-photo slideshow
+		Then there should be a slideshow with 3 images
 		
 	Scenario: Viewing nearby stations
 		Given I have selected a place

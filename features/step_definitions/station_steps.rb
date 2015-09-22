@@ -30,9 +30,21 @@ When(/^I click on the first interchange station$/) do
 	end
 end
 
+When(/^I click on the first place$/) do
+	within('#nav-station-places') do
+		first('a').click
+	end
+end
+
 Then(/^I should see (\d+) connections$/) do |number_connections|
 	within('#nav-station-connections') do
 		page.should have_selector('li', count: number_connections, visible: true)
+	end
+end
+
+Then(/^I should see (\d+) place[s]?$/) do |number_places|
+	within('#nav-station-places') do
+		page.should have_selector('li', count: number_places, visible: true)
 	end
 end
 
