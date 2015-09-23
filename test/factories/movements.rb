@@ -17,7 +17,11 @@ FactoryGirl.define do
 			down_allowed false
 		end
 		
-		factory :single_direction_movement do
+		factory :single_direction_up_movement do
+			down_allowed false
+		end
+		
+		factory :single_direction_down_movement do
 			up_allowed false
 		end
 	end

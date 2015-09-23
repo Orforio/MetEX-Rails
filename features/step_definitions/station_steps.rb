@@ -19,6 +19,29 @@ Given(/^(\d+) station[s]? with (\d+) image[s]? exists$/) do |number_stations, nu
 	end
 end
 
+Given(/^a (.+) station exists$/) do |station_type|
+	station = FactoryGirl.create(:station)
+	
+	case station_type
+		when 'running'
+			FactoryGirl.create(:movement, down_station: station)
+			FactoryGirl.create(:movement, up_station: station)
+		when 'terminus'
+			FactoryGirl.create(:terminus_movement, down_station: station)
+			FactoryGirl.create(:movement, up_station: station)
+		when 'branching loop'
+			FactoryGirl.create(:single_direction_down_movement, down_station: station)
+			FactoryGirl.create(:movement, down_station: station)
+			FactoryGirl.create(:movement, up_station: station)
+		when 'terminus loop'
+			FactoryGirl.create(:terminus_movement, down_station: station)
+			FactoryGirl.create(:single_direction_up_movement, up_station: station)
+			FactoryGirl.create(:single_direction_down_movement, up_station: station)
+		else
+			pending
+	end
+end
+
 Given(/^I have selected a station$/) do
 	step "I have selected a line"
 	step "I click on the first station"
@@ -32,6 +55,12 @@ end
 
 When(/^I click on the first place$/) do
 	within('#nav-station-places') do
+		first('a').click
+	end
+end
+
+When(/^I click on the first up movement$/) do
+	within('#nav-station-up') do
 		first('a').click
 	end
 end
@@ -69,4 +98,16 @@ end
 
 Then(/^I do see a placeholder image$/) do
 	page.should have_selector('img[src="http://metexv2.sblorgh.org/media/images/photo-not-available.jpg"]', visible: true)
+end
+
+Then(/^I should see (\d+) (up|down) movement[s]?$/) do |number_movements, direction|
+	within("#nav-station-#{direction}") do
+		page.should have_selector('a', count: number_movements, visible: true)
+	end
+end
+
+Then(/^I should see (\d+) illegal (up|down) movement$/) do |number_illegal_movements, direction|
+	within("#nav-station-#{direction}") do
+		page.should have_selector('a.bg-danger', count: number_illegal_movements, visible: true)
+	end
 end

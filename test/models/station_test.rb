@@ -32,7 +32,7 @@ class StationTest < ActiveSupport::TestCase
 	context "a Station" do
 		setup do
 			@station = FactoryGirl.create(:station)
-			@up_movement_disallowed = FactoryGirl.create(:single_direction_movement, down_station: @station)
+			@up_movement_disallowed = FactoryGirl.create(:single_direction_down_movement, down_station: @station)
 			@up_movement_allowed = FactoryGirl.create(:movement, down_station: @station)
 			@movements = @station.up_movements
 		end

@@ -6,11 +6,11 @@
 	</div>
 </div>
 <div class="container-fluid line-<%= @station.line.id %>">
-	<div class="row">
-		<div class="col-sm-6">
+	<div class="row" id="nav-station">
+		<div class="col-sm-6" id="nav-station-up">
 			<%= render partial: 'up_movement', collection: @up_movements %>
 		</div>
-		<div class="col-sm-6">
+		<div class="col-sm-6" id="nav-station-down">
 			<%= render partial: 'down_movement', collection: @down_movements %>
 		</div>
 	</div>
