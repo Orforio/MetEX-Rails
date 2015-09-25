@@ -8,7 +8,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-4">
-			<%= image_tag 'http://metexv2.sblorgh.org/media/images/stations/16/thumb_6-3.jpg', alt: 'Bercy station on Line 14', class: 'img-responsive' %>
+			<%= image_tag "#{Rails.application.config.asset_server}/#{Rails.application.config.asset_image_path}/stations/16/thumb_6-3.jpg", alt: 'Bercy station on Line 14', class: 'img-responsive' %>
 		</div>
 		<div class="col-sm-8">
 			<p>Welcome to MétEX, the Paris Métro Experience.</p>
