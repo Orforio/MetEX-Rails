@@ -22,5 +22,9 @@ module MetEX
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    config.asset_server = 'http://metex-assets.sblorgh.org'
+    config.asset_image_path = 'images'
+    config.asset_sound_path = 'sounds'
   end
 end

@@ -6,6 +6,6 @@ class Sound < ActiveRecord::Base
 	validates :length, numericality: { only_integer: true }
 	
 	def url
-		"http://metexv2.sblorgh.org/media/audio/#{filename}"
+		"#{Rails.application.config.asset_server}/#{Rails.application.config.asset_sound_path}/#{filename}"
 	end
 end

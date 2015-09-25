@@ -16,7 +16,7 @@ class ImageTest < ActiveSupport::TestCase
 		end
 		
 		should "return a fully-formed URL" do
-			assert_equal "http://metexv2.sblorgh.org/media/images/stations/#{@image.filename}", @image.url
+			assert_equal "#{Rails.application.config.asset_server}/#{Rails.application.config.asset_image_path}/stations/#{@image.filename}", @image.url
 		end
 	end
 end

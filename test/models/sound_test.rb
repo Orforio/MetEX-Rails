@@ -18,7 +18,7 @@ class SoundTest < ActiveSupport::TestCase
 		end
 		
 		should "return a fully-formed URL" do
-			assert_equal "http://metexv2.sblorgh.org/media/audio/#{@sound.filename}", @sound.url
+			assert_equal "#{Rails.application.config.asset_server}/#{Rails.application.config.asset_sound_path}/#{@sound.filename}", @sound.url
 		end
 	end
 end

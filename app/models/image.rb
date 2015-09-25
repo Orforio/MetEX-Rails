@@ -5,6 +5,6 @@ class Image < ActiveRecord::Base
 	validates :filename, format: { with: /[\w\/-]+\.jpg\z/, message: "must end in .jpg" }
 	
 	def url
-		"http://metexv2.sblorgh.org/media/images/stations/#{filename}"
+		"#{Rails.application.config.asset_server}/#{Rails.application.config.asset_image_path}/stations/#{filename}"
 	end
 end
