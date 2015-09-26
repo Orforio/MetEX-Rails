@@ -6,4 +6,7 @@ class Place < ActiveRecord::Base
 	validates :name, uniqueness: true
 	
 	default_scope { order(name: :asc) }
+	
+	extend FriendlyId
+	friendly_id :name, use: :slugged
 end
