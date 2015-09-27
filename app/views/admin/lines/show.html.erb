@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @line.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @line.description %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @line.active %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @line.slug %>
+</p>
+
+<%= link_to 'Edit', edit_admin_line_path(@line) %> |
+<%= link_to 'Back', lines_path %>

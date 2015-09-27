@@ -1,71 +1,21 @@
 class StationsController < ApplicationController
-	before_action :restrict_to_development, except: [:index, :show]
-	before_action :set_line, except: [:new, :create]
-	before_action :set_station, only: [:show, :edit, :update, :destroy]
+	before_action :set_line
+	before_action :set_station, only: :show
 	before_action :set_movements, only: :show
 
-  # GET /stations
-  # GET /stations.json
-  def index
-    @stations = @line.stations
-  end
+	# GET /stations
+	# GET /stations.json
+	def index
+		@stations = @line.stations
+	end
 
-  # GET /stations/1
-  # GET /stations/1.json
-  def show
-	  set_connections if @station.interchange
-  end
+	# GET /stations/1
+	# GET /stations/1.json
+	def show
+		 set_connections if @station.interchange
+	end
 
-  # GET /stations/new
-  def new
-    @station = Station.new
-  end
-
-  # GET /stations/1/edit
-  def edit
-  end
-
-  # POST /stations
-  # POST /stations.json
-  def create
-    @station = Station.new(station_params)
-
-    respond_to do |format|
-      if @station.save
-        format.html { redirect_to @station, notice: 'Station was successfully created.' }
-        format.json { render :show, status: :created, location: @station }
-      else
-        format.html { render :new }
-        format.json { render json: @station.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /stations/1
-  # PATCH/PUT /stations/1.json
-  def update
-    respond_to do |format|
-      if @station.update(station_params)
-        format.html { redirect_to @station, notice: 'Station was successfully updated.' }
-        format.json { render :show, status: :ok, location: @station }
-      else
-        format.html { render :edit }
-        format.json { render json: @station.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /stations/1
-  # DELETE /stations/1.json
-  def destroy
-    @station.destroy
-    respond_to do |format|
-      format.html { redirect_to stations_url, notice: 'Station was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
-  private
+	private
 		# Get Line first due to nested routing
 		def set_line
 			@line = Line.friendly.find(params[:line_id])

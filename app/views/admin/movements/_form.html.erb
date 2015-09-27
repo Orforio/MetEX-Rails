@@ -1,0 +1,37 @@
+<%= form_for [:admin, @movement] do |f| %>
+  <% if @movement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@movement.errors.count, "error") %> prohibited this movement from being saved:</h2>
+
+      <ul>
+      <% @movement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :up_station_id %><br>
+    <%= f.number_field :up_station_id %>
+  </div>
+  <div class="field">
+    <%= f.label :down_station_id %><br>
+    <%= f.number_field :down_station_id %>
+  </div>
+  <div class="field">
+    <%= f.label :up_allowed %><br>
+    <%= f.check_box :up_allowed %>
+  </div>
+  <div class="field">
+    <%= f.label :down_allowed %><br>
+    <%= f.check_box :down_allowed %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br>
+    <%= f.number_field :length %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

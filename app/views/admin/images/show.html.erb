@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @image.filename %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @image.title %>
+</p>
+
+<p>
+  <strong>Alt:</strong>
+  <%= @image.alt %>
+</p>
+
+<p>
+  <strong>Imageable:</strong>
+  <%= @image.imageable %>
+</p>
+
+<%= link_to 'Edit', edit_admin_image_path(@image) %> |
+<%= link_to 'Back', admin_images_path %>

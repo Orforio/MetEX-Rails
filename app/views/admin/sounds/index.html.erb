@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sounds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Filename</th>
+      <th>Title</th>
+      <th>Length</th>
+      <th>Soundable</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sounds.each do |sound| %>
+      <tr>
+        <td><%= sound.filename %></td>
+        <td><%= sound.title %></td>
+        <td><%= sound.length %></td>
+        <td><%= sound.soundable %></td>
+        <td><%= link_to 'Show', [:admin, sound] %></td>
+        <td><%= link_to 'Edit', edit_admin_sound_path(sound) %></td>
+        <td><%= link_to 'Destroy', [:admin, sound], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sound', new_admin_sound_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Filename:</strong>
+  <%= @sound.filename %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sound.title %>
+</p>
+
+<p>
+  <strong>Length:</strong>
+  <%= @sound.length %>
+</p>
+
+<p>
+  <strong>Soundable:</strong>
+  <%= @sound.soundable %>
+</p>
+
+<%= link_to 'Edit', edit_admin_sound_path(@sound) %> |
+<%= link_to 'Back', admin_sounds_path %>

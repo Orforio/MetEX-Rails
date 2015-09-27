@@ -1,0 +1,72 @@
+class Admin::StationsController < AdminController
+	before_action :set_line, except: [:new, :create]
+	before_action :set_station, only: [:edit, :update, :destroy]
+	
+	# GET /stations/new
+	def new
+		@station = Station.new
+	end
+
+	# GET /stations/1/edit
+	def edit
+	end
+
+	# POST /stations
+	# POST /stations.json
+	def create
+		@station = Station.new(station_params)
+
+		respond_to do |format|
+			if @station.save
+				format.html { redirect_to @station, notice: 'Station was successfully created.' }
+				format.json { render :show, status: :created, location: @station }
+			else
+				format.html { render :new }
+				format.json { render json: @station.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+
+	# PATCH/PUT /stations/1
+	# PATCH/PUT /stations/1.json
+	def update
+		respond_to do |format|
+			if @station.update(station_params)
+				format.html { redirect_to @station, notice: 'Station was successfully updated.' }
+				format.json { render :show, status: :ok, location: @station }
+			else
+				format.html { render :edit }
+				format.json { render json: @station.errors, status: :unprocessable_entity }
+			end
+		end
+	end
+
+	# DELETE /stations/1
+	# DELETE /stations/1.json
+	def destroy
+		@station.destroy
+		respond_to do |format|
+			format.html { redirect_to stations_url, notice: 'Station was successfully destroyed.' }
+			format.json { head :no_content }
+		end
+	end
+
+	private
+		# Get Line first due to nested routing
+		def set_line
+			@line = Line.friendly.find(params[:line_id])
+		end
+
+		def set_station
+			@station = @line.stations.friendly.find(params[:id])
+		end
+		
+		def set_connections
+			@connections = Interchange.find(@station.interchange.id).stations.where.not(id: @station)
+		end
+
+		# Never trust parameters from the scary internet, only allow the white list through.
+		def station_params
+			params.require(:station).permit(:name, :line_id, :description, :active, :slug)
+		end
+end
