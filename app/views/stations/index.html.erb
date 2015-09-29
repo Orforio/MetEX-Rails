@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="list-group">
 			<% @stations.each do |station| %>
-			<a href="<%= line_station_path(@line, station) %>" class="list-group-item">
+			<a href="<%= station_path(@line, station) %>" class="list-group-item">
 				<h4><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> <%= station.name %></h4>
 			</a>
 			<% end %>

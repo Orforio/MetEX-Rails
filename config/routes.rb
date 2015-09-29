@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 	root 'welcome#index'
 	
-	resources :lines, only: :index do
-		resources :stations, only: [:index, :show]
+	get 'tour/:line_slug/:station_slug', to: 'stations#show', as: :station
+	
+	resources :lines, param: :slug, only: :index do
+		resources :stations, only: :index
 	end
 	
-	resources :places, only: :show
+	resources :places, param: :slug, only: :show
 	
 	namespace :admin do
 		resources :lines, except: :index do

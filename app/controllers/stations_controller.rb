@@ -18,11 +18,11 @@ class StationsController < ApplicationController
 	private
 		# Get Line first due to nested routing
 		def set_line
-			@line = Line.friendly.find(params[:line_id])
+			@line = Line.friendly.find(params[:line_slug])
 		end
 
 		def set_station
-			@station = @line.stations.friendly.find(params[:id])
+			@station = @line.stations.friendly.find(params[:station_slug])
 		end
 		
 		def set_movements

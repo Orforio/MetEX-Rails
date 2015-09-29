@@ -6,7 +6,7 @@ class PlacesControllerTest < ActionController::TestCase
 	end
 
 	test "should show place" do
-		get :show, id: @place
+		get :show, slug: @place
 		assert_response :success
 	end
 end

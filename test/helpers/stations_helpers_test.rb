@@ -12,10 +12,10 @@ class StationsHelperTest < ActionView::TestCase
 	end
 	
 	test "should display an allowed station" do
-		assert_equal link_to(@station.name, line_station_path(@station.line.slug, @station.slug)), link_to_next_station(@station, true)
+		assert_equal link_to(@station.name, station_path(@station.line.slug, @station.slug)), link_to_next_station(@station, true)
 	end
 	
 	test "should display a disallowed station" do
-		assert_equal link_to(@station.name, line_station_path(@station.line.slug, @station.slug), class: 'bg-danger'), link_to_next_station(@station, false)
+		assert_equal link_to(@station.name, station_path(@station.line.slug, @station.slug), class: 'bg-danger'), link_to_next_station(@station, false)
 	end
 end
