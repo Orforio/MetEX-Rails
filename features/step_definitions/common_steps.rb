@@ -26,7 +26,7 @@ Then(/^I should not see "(.*?)" in the (.*?)$/) do |text, context|
 	end
 end
 
-Then(/^I should see only (\d+) (?:line[s]?|station[s]?)$/) do |number|
+Then(/^I should see only (\d+) (?:line[s]?|station[s]?|place[s]?)$/) do |number|
 	within('.list-group') do
 		all('.list-group-item', count: number, visible: true)
 	end

@@ -1,19 +1,16 @@
 Feature: Places
 	As a passenger,
-	I want to see more information on a place of interest,
-	So that I can broaden my knowledge
+	I want to see a list of places of interest,
+	So that I can start the tour from an above-ground location
 	
 	Background:
-		Given 1 place exists with 2 stations and 3 images
+		Given 3 places exist with 1 station and 1 image
 		
-	Scenario: Viewing place information
-		Given I have selected a place
-		Then I should see "a wonderful place" in the body
+	Scenario: Viewing available places
+		Given I am on the "places index" page
+		Then I should only see 3 places
 		
-	Scenario: Viewing slideshow
-		Given I have selected a place
-		Then there should be a slideshow with 3 images
-		
-	Scenario: Viewing nearby stations
-		Given I have selected a place
-		Then I should see 2 nearby stations
+	Scenario: Selecting a place
+		Given I am on the "places index" page
+		When I click on the first place
+		Then I am sent to a "show place" page
