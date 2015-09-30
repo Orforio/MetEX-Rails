@@ -8,7 +8,7 @@ Feature: Places
 		
 	Scenario: Viewing available places
 		Given I am on the "places index" page
-		Then I should only see 3 places
+		Then I should see only 3 places
 		
 	Scenario: Selecting a place
 		Given I am on the "places index" page

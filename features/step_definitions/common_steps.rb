@@ -10,7 +10,7 @@ When(/^I click on "(.*?)"$/) do |text|
 	click_on(text)
 end
 
-When(/^I click on the first (?:line|station)$/) do
+When(/^I click on the first (?:line|station|place)$/) do
 	first('.list-group-item').click
 end
 

@@ -53,7 +53,7 @@ When(/^I click on the first interchange station$/) do
 	end
 end
 
-When(/^I click on the first place$/) do
+When(/^I click on the first place item$/) do
 	within('#nav-station-places') do
 		first('a').click
 	end

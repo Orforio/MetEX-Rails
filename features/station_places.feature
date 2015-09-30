@@ -16,5 +16,5 @@ Feature: Stations - Places
 	Scenario: Viewing nearby places
 		Given 1 place exists with 2 stations and 0 images
 			And I have selected a station
-		When I click on the first place
+		When I click on the first place item
 		Then I should be sent to a "show place" page
