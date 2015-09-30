@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 		resources :stations, only: :index
 	end
 	
-	resources :places, param: :slug, only: :show
+	resources :places, param: :slug, only: [:index, :show]
 	
 	namespace :admin do
 		resources :lines, except: :index do

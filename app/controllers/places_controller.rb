@@ -1,6 +1,11 @@
 class PlacesController < ApplicationController
 	before_action :set_place, only: :show
 
+	# GET /places
+	def index
+		@places = Place.all
+	end
+
 	# GET /places/1
 	# GET /places/1.json
 	def show
