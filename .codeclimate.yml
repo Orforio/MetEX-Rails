@@ -1,0 +1,7 @@
+languages:
+  Ruby: true
+  JavaScript: true
+
+exclude_paths:
+# These admin controllers will only work in the development environment, so can't be tested
+- "app/controllers/admin/*"
