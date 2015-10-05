@@ -7,7 +7,6 @@ class PlacesController < ApplicationController
 	end
 
 	# GET /places/1
-	# GET /places/1.json
 	def show
 	end
 

@@ -4,13 +4,11 @@ class StationsController < ApplicationController
 	before_action :set_movements, only: :show
 
 	# GET /stations
-	# GET /stations.json
 	def index
 		@stations = @line.stations
 	end
 
 	# GET /stations/1
-	# GET /stations/1.json
 	def show
 		 set_connections if @station.interchange
 	end

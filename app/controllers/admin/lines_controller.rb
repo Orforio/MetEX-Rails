@@ -2,7 +2,6 @@ class Admin::LinesController < AdminController
 	before_action :set_line, only: [:show, :edit, :update, :destroy]
 	
 	# GET /lines/1
-	# GET /lines/1.json
 	def show
 	end
 
@@ -16,43 +15,29 @@ class Admin::LinesController < AdminController
 	end
 
 	# POST /lines
-	# POST /lines.json
 	def create
 		@line = Line.new(line_params)
 
-		respond_to do |format|
-			if @line.save
-				format.html { redirect_to @line, notice: 'Line was successfully created.' }
-				format.json { render :show, status: :created, location: @line }
-			else
-				format.html { render :new }
-				format.json { render json: @line.errors, status: :unprocessable_entity }
-			end
+		if @line.save
+			redirect_to @line, notice: 'Line was successfully created.'
+		else
+			render :new
 		end
 	end
 
 	# PATCH/PUT /lines/1
-	# PATCH/PUT /lines/1.json
 	def update
-		respond_to do |format|
-			if @line.update(line_params)
-				format.html { redirect_to @line, notice: 'Line was successfully updated.' }
-				format.json { render :show, status: :ok, location: @line }
-			else
-				format.html { render :edit }
-				format.json { render json: @line.errors, status: :unprocessable_entity }
-			end
+		if @line.update(line_params)
+			redirect_to @line, notice: 'Line was successfully updated.'
+		else
+			render :edit
 		end
 	end
 
 	# DELETE /lines/1
-	# DELETE /lines/1.json
 	def destroy
 		@line.destroy
-		respond_to do |format|
-			format.html { redirect_to lines_url, notice: 'Line was successfully destroyed.' }
-			format.json { head :no_content }
-		end
+		redirect_to lines_url, notice: 'Line was successfully destroyed.'
 	end
 	
 	private

@@ -2,13 +2,11 @@ class Admin::InterchangesController < AdminController
 	before_action :set_interchange, only: [:show, :edit, :update, :destroy]
 
 	# GET /interchanges
-	# GET /interchanges.json
 	def index
 		@interchanges = Interchange.all
 	end
 
 	# GET /interchanges/1
-	# GET /interchanges/1.json
 	def show
 	end
 
@@ -22,43 +20,29 @@ class Admin::InterchangesController < AdminController
 	end
 
 	# POST /interchanges
-	# POST /interchanges.json
 	def create
 		@interchange = Interchange.new(interchange_params)
 
-		respond_to do |format|
-			if @interchange.save
-				format.html { redirect_to @interchange, notice: 'Interchange was successfully created.' }
-				format.json { render :show, status: :created, location: @interchange }
-			else
-				format.html { render :new }
-				format.json { render json: @interchange.errors, status: :unprocessable_entity }
-			end
+		if @interchange.save
+			redirect_to @interchange, notice: 'Interchange was successfully created.'
+		else
+			render :new
 		end
 	end
 
 	# PATCH/PUT /interchanges/1
-	# PATCH/PUT /interchanges/1.json
 	def update
-		respond_to do |format|
-			if @interchange.update(interchange_params)
-				format.html { redirect_to @interchange, notice: 'Interchange was successfully updated.' }
-				format.json { render :show, status: :ok, location: @interchange }
-			else
-				format.html { render :edit }
-				format.json { render json: @interchange.errors, status: :unprocessable_entity }
-			end
+		if @interchange.update(interchange_params)
+			redirect_to @interchange, notice: 'Interchange was successfully updated.'
+		else
+			render :edit
 		end
 	end
 
 	# DELETE /interchanges/1
-	# DELETE /interchanges/1.json
 	def destroy
 		@interchange.destroy
-		respond_to do |format|
-			format.html { redirect_to interchanges_url, notice: 'Interchange was successfully destroyed.' }
-			format.json { head :no_content }
-		end
+		redirect_to interchanges_url, notice: 'Interchange was successfully destroyed.'
 	end
 
 	private
