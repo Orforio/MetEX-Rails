@@ -31,9 +31,4 @@ class StationsController < ApplicationController
 		def set_connections
 			@connections = Interchange.find(@station.interchange.id).stations.where.not(id: @station)
 		end
-
-		# Never trust parameters from the scary internet, only allow the white list through.
-		def station_params
-			params.require(:station).permit(:name, :line_id, :description, :active, :slug)
-		end
 end
