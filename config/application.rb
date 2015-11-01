@@ -26,5 +26,6 @@ module MetEX
     config.asset_server = 'http://metex-assets.sblorgh.org'
     config.asset_image_path = 'images'
     config.asset_sound_path = 'sounds'
+    config.milestone_name = 'Concorde'
   end
 end
